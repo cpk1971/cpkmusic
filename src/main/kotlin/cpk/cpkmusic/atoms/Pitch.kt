@@ -61,7 +61,10 @@ data class Pitch(val value: Double) {
         return Pitch(value + count * 12)
     }
 
-    fun parse(pitchSpec: String) {
+    fun parse(pitchSpec: String): Pitch {
+        throw NotImplementedError("derp")
+        /*
+        
         if (pitchSpec.isEmpty()) {
             throw InterpretationException("empty string");
         }
@@ -70,9 +73,9 @@ data class Pitch(val value: Double) {
             throw InterpretationException("not a note from a-g");
         }
         // for now we'll just support # and b
-        val accident = pitchSpec.get(1) in 
+        // val accident = pitchSpec.get(1) in
 
-
+         */
     }
 
     companion object {
