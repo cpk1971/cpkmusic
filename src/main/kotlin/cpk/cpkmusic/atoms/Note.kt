@@ -1,6 +1,12 @@
 package cpk.cpkmusic.atoms
 
-data class Note(val pitch: Pitch, val duration: Duration) {
+import cpk.cpkmusic.atoms.note.Articulation
+
+data class Note(
+        val pitch: Pitch,
+        val duration: Duration,
+        val articulation: Articulation = Articulation.NEUTRAL
+        ) {
     operator fun plus(y: Double): Note {
         return Note(pitch + y, duration)
     }

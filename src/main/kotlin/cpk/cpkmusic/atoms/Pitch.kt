@@ -1,5 +1,6 @@
 package cpk.cpkmusic.atoms
 
+import cpk.cpkmusic.exceptions.InterpretationException
 import kotlin.math.pow
 
 /**
@@ -58,6 +59,20 @@ data class Pitch(val value: Double) {
 
     fun addOctave(count: Int): Pitch {
         return Pitch(value + count * 12)
+    }
+
+    fun parse(pitchSpec: String) {
+        if (pitchSpec.isEmpty()) {
+            throw InterpretationException("empty string");
+        }
+        val root = pitchSpec.get(0).toLowerCase()
+        if (! "abcdefg".contains(root)) {
+            throw InterpretationException("not a note from a-g");
+        }
+        // for now we'll just support # and b
+        val accident = pitchSpec.get(1) in 
+
+
     }
 
     companion object {
